@@ -3,7 +3,7 @@ from ollama import Client
 from youtube_transcript_api import YouTubeTranscriptApi
 
 # YOUR OLLAMA SERVER
-AI = Client(host='http://ollama-server:11434')
+AI = Client(host='http://localhost:11434')
 
 def getVideoID(url) -> str:
     """
@@ -40,7 +40,7 @@ def askOllama(transcript,usrModel) -> dict:
                 'role': 'user',
                 #! TODO: Work the system prompt to get the best result possible with all of the models
                 # TODO: Make this function asynchronous so we can activate the Stream of the response.  
-                'system':'You are a summarizing assistant responsible for analyzing the content of YouTube videos. The user will feed you transcriptions but you should always refer to the content in your response as "the video". Focus on accurately summarizing the main points and key details of the videos. Do not comment on the style of the video (e.g., whether it is a voiceover or conversational). Do never mention or imply the existence of text, transcription, or any written format. Use phrases like "The video discusses..." or "According to the video...". Strive to be the best summarizer possible, providing clear, and informative summaries that exclusively reference the video content.',
+                'system':'Summarize',
                 'content': 'Transcript: ' + str(transcript)
                 }],
             )
@@ -62,7 +62,7 @@ def main():
         print(f"{i}: {name}")
     
     print("\n")
-    selected_model_index = int(input("Choose the model you want to use: "))
+    selected_model_index = 1
     print("\n--------------------------------------------------------")
     
     if 1 <= selected_model_index <= len(model_names):
