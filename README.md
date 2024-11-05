@@ -1,4 +1,4 @@
-# Ollama Youtube Video Summarizer
+# Ollama Youtube Video Summarizer with better handling
 ![Captura de ecrã 2024-07-21, às 11 46 57](https://github.com/user-attachments/assets/81c4568b-34b8-479c-a18d-fadb82cde568)
 
 A simple youtube summarizer using a local AI ollama server.
@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ## Run the script
 ```
-python3 main.py
+python main.py
 ```
 
 ## To Do 
